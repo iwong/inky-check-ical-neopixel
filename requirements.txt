@@ -4,7 +4,7 @@ adafruit-circuitpython-pixelbuf==1.1.2
 Adafruit-PlatformDetect==3.19.6
 Adafruit-PureIO==1.1.9
 adafruit-python-shell==1.3.3
-aiohttp==3.7.4.post0
+aiohttp==3.9.4
 args==0.1.0
 asn1crypto==0.24.0
 async-timeout==3.0.1
