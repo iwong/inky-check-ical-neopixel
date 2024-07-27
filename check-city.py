@@ -9,9 +9,10 @@ ICAL_URL = 'https://recollect.a.ssl.fastly.net/api/places/DD53433C-7EDC-11E8-B7D
 NUM_PIXELS = 1  # Number of NeoPixels
 PIN = board.D18  # GPIO pin connected to NeoPixels (board.D18 for GPIO18)
 ORDER = neopixel.GRB  # Pixel color order
+BRIGHTNESS = 0.1 # Pixel brightness
 
 # NeoPixel setup
-strip = neopixel.NeoPixel(PIN, NUM_PIXELS, auto_write=False, pixel_order=ORDER, brightness=0.1)
+strip = neopixel.NeoPixel(PIN, NUM_PIXELS, auto_write=False, pixel_order=ORDER, brightness=BRIGHTNESS)
 
 def turn_on_neopixel(color):
     """Turn on the NeoPixel to the given color."""
@@ -23,7 +24,7 @@ def get_tomorrow_events(ical_url):
     """Fetch iCal data and return events for tomorrow."""
     response = requests.get(ical_url)
     calendar = Calendar.from_ical(response.content)
-        
+
     #now = datetime.now() + timedelta(days=10)
     now = datetime.now()
     today_start = datetime(now.year, now.month, now.day)
@@ -34,7 +35,7 @@ def get_tomorrow_events(ical_url):
     for component in calendar.walk():
         if component.name == "VEVENT":
             start = datetime.combine(component.get('dtstart').dt, datetime.min.time())
-            
+
             if isinstance(start, datetime) and (today_start <= start < tomorrow_start or tomorrow_start <= start < tomorrow_end):
                 summary = component.get('summary')
                 if summary:
@@ -48,7 +49,7 @@ def get_tomorrow_events(ical_url):
                     elif 'recycling' in summary_lower:
                         #print('recycling')
                         return (0, 0, 32)  # Blue
-    
+
     return (0, 0, 0)  # Turn off NeoPixel (off)
 
 def main():
