@@ -33,7 +33,7 @@ geographiclib==1.50
 geopy==2.1.0
 html5lib==1.0.1
 icalendar==4.0.3
-idna==2.6
+idna==3.7
 imageio==2.9.0
 inky==1.2.0
 inkyphat==1.0.1
