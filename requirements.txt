@@ -74,7 +74,7 @@ typing-extensions==3.7.4.3
 ufw==0.36
 unattended-upgrades==0.1
 Unidecode==1.2.0
-urllib3==1.24.1
+urllib3==1.26.19
 webencodings==0.5.1
 wikiquotes==1.4
 yarl==1.6.3
