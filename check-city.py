@@ -59,5 +59,7 @@ def main():
     else:
         print("No relevant event found for today or tomorrow.")
 
+    turn_on_neopixel(color)
+
 if __name__ == '__main__':
     main()
